@@ -1,7 +1,9 @@
+import useTextBoardContext from "@/hooks/useTextBoardContext";
 import React from "react";
 
 const Matches = () => {
-  return <div>matchs</div>;
+  const { matchCount } = useTextBoardContext()
+  return <div>matchs {matchCount}</div>;
 };
 
 export default Matches;

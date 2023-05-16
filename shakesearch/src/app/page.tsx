@@ -1,9 +1,5 @@
-import { LeftSidebar, RightSidebar, Text } from "@/components";
-import { Lora } from "next/font/google";
-
-const lora = Lora({
-  subsets: ["latin"],
-});
+import Home from "@/containers/Home";
+import useTextBoardContext from "@/hooks/useTextBoardContext";
 
 async function getTextData() {
   const text = await fetch(
@@ -13,19 +9,16 @@ async function getTextData() {
   return t;
 }
 
-export default async function Home() {
-  const text = await getTextData();
+export default async function App() {
+  // const text = await getTextData();
+// console.log("text", text)
+  const text = `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+Tenetur non odit a eos perferendis. Reiciendis, architecto. 
+Repellat, iure aliquid fuga nisi ratione dolore rem est eaque nemo fugiat nulla veniam`;
+ 
   return (
-    <main className="flex h-screen w-full gap-y-2 px-6">
-      <div className="w-1/4 h-4/5 my-auto border-r-2 mr-2 border-spacing-80 border-black border-opacity-20">
-        <LeftSidebar />
-      </div>
-      <div className="w-1/2 h-5/6 overflow-scroll px-2 justify-center">
-        <Text text={text} />
-      </div>
-      <div className=" w-1/4">
-        <RightSidebar />
-      </div>
+    <main className="grid grid-flow-row-dense grid-cols-3 h-screen w-full gap-y-2 px-6">
+      <Home text={text.repeat(100)} />
     </main>
   );
 }
