@@ -5,7 +5,7 @@ const lora = Lora({
   subsets: ["latin"],
 });
 
-export async function getTextData() {
+async function getTextData() {
   const text = await fetch(
     "https://raw.githubusercontent.com/retamozo/shakesearch/master/completeworks.txt"
   );
