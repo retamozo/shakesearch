@@ -1,10 +1,8 @@
-"use client";
 import React, { useRef } from "react";
 import {
   Input,
   Stack,
   InputGroup,
-  InputRightAddon,
   Text,
   InputRightElement,
 } from "@chakra-ui/react";
@@ -18,6 +16,8 @@ const InputSearch = () => {
 
   const { value, onChange } = useTextBoardContext();
 
+  const ctrlKey = navigator.userAgent.indexOf("Mac") != -1 ? "⌘" : "Ctrl";
+
   return (
     <Stack>
       <InputGroup>
@@ -28,10 +28,10 @@ const InputSearch = () => {
           onChange={onChange}
           size={"md"}
           type="text"
-          placeholder="Search"
+          placeholder="Search ..."
         />
-        <InputRightElement className="mx-2" pointerEvents="none">
-          <Text className="text-gray-400 px-2"> ⌘+K</Text>
+        <InputRightElement className="mx-2 w-1/5" pointerEvents="none">
+          <Text className="text-gray-400 px-2">{ctrlKey} + K</Text>
         </InputRightElement>
       </InputGroup>
     </Stack>

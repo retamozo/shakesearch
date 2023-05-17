@@ -1,13 +1,8 @@
 import React from "react";
-import Header from "../Header";
+import Nav from "../Nav";
 
 const LeftSidebar = () => {
-  return (
-    <div>
-      contenido
-      <p>aca tiene q ir todo el coso de los capitulos y eso</p>
-    </div>
-  );
+  return <Nav />;
 };
 
 export default LeftSidebar;

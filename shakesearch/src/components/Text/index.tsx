@@ -3,7 +3,12 @@ import React, { FunctionComponent } from "react";
 
 const Text: FunctionComponent = () => {
   const { highlightedText } = useTextBoardContext();
-   return <div dangerouslySetInnerHTML={{ __html: highlightedText }}></div>;
+  return (
+    <div
+      className="overscroll-contain"
+      dangerouslySetInnerHTML={{ __html: highlightedText }}
+    ></div>
+  );
 };
 
 export default Text;

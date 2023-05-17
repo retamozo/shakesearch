@@ -4,3 +4,4 @@ export { default as RightSidebar } from "./RightSidebar";
 export { default as InputSearch } from "./InputSearch";
 export { default as Matches } from "./Matches";
 export { default as Historial } from "./Historial";
+export { default as Nav } from "./Nav";

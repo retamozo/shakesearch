@@ -3,7 +3,8 @@ import { useEffect, RefObject } from "react";
 const useCommandShortcut = (ref: RefObject<HTMLInputElement | null>) => {
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.metaKey && e.key.toLowerCase() === "k") {
+      const ctrl = e.ctrlKey || e.metaKey;
+      if (ctrl && e.key.toLowerCase() === "k") {
         e.preventDefault();
         ref.current!.focus();
       }
