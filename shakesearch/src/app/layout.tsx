@@ -1,20 +1,20 @@
-"use client";
 import "./globals.css";
 import { Lora } from "next/font/google";
 import Header from "@/components/Header";
 import ChakraProvider from "../providers/ChakraProvider";
 import TextBoardProvider from "@/providers/TextBoardProvider";
-import { LeftSidebar, RightSidebar } from "@/components";
+import { ReactNode } from "react";
+import { Footer, WorkIndex } from "@/components";
 
 const lora = Lora({
   subsets: ["latin"],
 });
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+type RootLayoutProps = {
+  children: ReactNode;
+};
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <title>Shakesearh app</title>
@@ -36,20 +36,21 @@ export default function RootLayout({
         href="/favicon-16x16.png"
       />
       <link rel="manifest" href="/site.webmanifest" />
-      <body className={lora.className}>
-        <header className="px-6 pt-6">
-          <Header />
-        </header>
-        <ChakraProvider>
-          <TextBoardProvider>
-            <main className="flex container mx-auto">
-              <LeftSidebar />
+      <ChakraProvider>
+        <TextBoardProvider>
+          <body className={`${lora.className} h-screen flex flex-col`}>
+            <header className="px-6 pt-6 md:container md:mx-auto">
+              <Header />
+            </header>
+            <main className="flex-grow md:container md:mx-auto px-6"> {/**flex flex-grow flex-col-reverse md:flex-row md:container md:mx-auto p-6 */}                          
               {children}
-              <RightSidebar />
             </main>
-          </TextBoardProvider>
-        </ChakraProvider>
-      </body>
+            <footer>
+              <Footer />
+            </footer>
+          </body>
+        </TextBoardProvider>
+      </ChakraProvider>
     </html>
   );
 }

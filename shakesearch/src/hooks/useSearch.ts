@@ -5,6 +5,7 @@ const useSearch = (originalText: string) => {
   const [searchText, setSearchText] = useState("");
   const [matchCount, setMatchCount] = useState(0);
   const [highlightedText, setHighlightedText] = useState(originalText);
+  const [openMobileDrawer, setOpenMobileDrawer] = useState(false);
 
   const onMatch = useCallback(
     (value: string): number => {
@@ -49,6 +50,8 @@ const useSearch = (originalText: string) => {
     onChange: onChange,
     matchCount,
     highlightedText,
+    openMobileDrawer,
+    setOpenMobileDrawer,
   };
 };
 

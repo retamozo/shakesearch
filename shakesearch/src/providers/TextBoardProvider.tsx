@@ -1,5 +1,4 @@
 "use client";
-
 import useSearch from "@/hooks/useSearch";
 import React, {
   ChangeEvent,
@@ -15,10 +14,11 @@ type TTextBoardContext = {
   value: string;
   matchCount: number;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  openMobileDrawer: boolean;
+  setOpenMobileDrawer: Dispatch<SetStateAction<boolean>>;
   setOriginalText: Dispatch<SetStateAction<string>>;
   highlightedText: string;
   originalText: string;
-
 };
 
 export const TextBoardContext = createContext<TTextBoardContext>(
@@ -29,8 +29,15 @@ const TextBoardProvider: FunctionComponent<{ children: ReactNode }> = ({
   children,
 }) => {
   const [originalText, setOriginalText] = useState("");
- 
-  const { matchCount, onChange, value , highlightedText} = useSearch(originalText);
+
+  const {
+    matchCount,
+    onChange,
+    value,
+    highlightedText,
+    openMobileDrawer,
+    setOpenMobileDrawer,
+  } = useSearch(originalText);
 
   return (
     <TextBoardContext.Provider
@@ -40,7 +47,9 @@ const TextBoardProvider: FunctionComponent<{ children: ReactNode }> = ({
         onChange,
         setOriginalText,
         originalText,
-        highlightedText
+        highlightedText,
+        openMobileDrawer,
+        setOpenMobileDrawer,
       }}
     >
       {children}

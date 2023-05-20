@@ -23,7 +23,7 @@ const Work = () => {
   }, [setOriginalText]);
 
   return (
-    <div className="flex flex-col w-2/5">
+    <div className="flex flex-col w-2/5 pt-6">
       <p>{path}</p>
       <TextBoard />;
     </div>

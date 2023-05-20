@@ -1,14 +1,29 @@
+"use client";
 import Link from "next/link";
 import React from "react";
+import InputSearch from "../InputSearch";
+import MobileSearch from "../MobileSearch";
 
 const Header = () => {
   return (
-    <div>
-      <Link href="/" className="text-xl underline underline-offset-4">
-        Shakesearch
-      </Link>
-      <h2 className="pt-2">All Shakespare&apos;s collection in one place.</h2>
-    </div>
+    <>
+      <nav>
+        <div className="flex justify-between">
+          <Link href="/" className="text-xl underline underline-offset-4">
+            The Complete Works of William Shakespeare
+          </Link>
+          <div className="md:hidden">
+            <MobileSearch />
+          </div>
+          <div className="hidden md:flex md:w-1/2">
+            <InputSearch />
+          </div>
+        </div>
+      </nav>
+      <h2 className="pt-2.5 text-sm">
+        A Gutenberg Literary Archive Foundation initiative
+      </h2>
+    </>
   );
 };
 

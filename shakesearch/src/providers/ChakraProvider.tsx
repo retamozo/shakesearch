@@ -1,6 +1,7 @@
 "use client";
 import React, { FunctionComponent, ReactNode } from "react";
 import { ChakraBaseProvider, extendBaseTheme } from "@chakra-ui/react";
+import { CacheProvider } from "@chakra-ui/next-js";
 
 import chakraTheme from "@chakra-ui/theme";
 
@@ -10,14 +11,18 @@ const theme = extendBaseTheme({
   components: {
     Button,
     Input,
-    Divider
+    Divider,
   },
 });
 
 const ChakraProvider: FunctionComponent<{ children: ReactNode }> = ({
   children,
 }) => {
-  return <ChakraBaseProvider theme={theme}>{children}</ChakraBaseProvider>;
+  return (
+    <CacheProvider>
+      <ChakraBaseProvider theme={theme}>{children}</ChakraBaseProvider>;
+    </CacheProvider>
+  );
 };
 
 export default ChakraProvider;

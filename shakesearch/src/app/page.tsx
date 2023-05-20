@@ -1,20 +1,18 @@
-import Home from "@/containers/Home";
-import useTextBoardContext from "@/hooks/useTextBoardContext";
+import { InputSearch } from "@/components";
+import StaticHome from "@/components/StaticHome";
+import React from "react";
 
-async function getTextData() {
-  const text = await fetch(
-    "https://raw.githubusercontent.com/retamozo/shakesearch/master/completeworks.txt"
+const Main = () => {
+  return (
+    <div className="flex flex-row w-full">
+      <div className="w-1/2">
+        <StaticHome />
+      </div>
+      <div className="hidden md:flex md:w-1/2">
+        {/* <InputSearch /> */}
+      </div>
+    </div>
   );
-  const t = await text?.text();
-  return t;
-}
+};
 
-export default async function App() {
-  // const text = await getTextData();
-  // console.log("text", text)
-  const text = `Lorem ipsum dolor sit amet consectetur adipisicing elit.
-Tenetur non odit a eos perferendis. Reiciendis, architecto.
-Repellat, iure aliquid fuga nisi ratione dolore rem est eaque nemo fugiat nulla veniam`;
-
-  return null;
-}
+export default Main;

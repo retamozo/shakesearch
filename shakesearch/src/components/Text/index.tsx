@@ -1,3 +1,4 @@
+"use client"
 import useTextBoardContext from "@/hooks/useTextBoardContext";
 import React, { FunctionComponent } from "react";
 
