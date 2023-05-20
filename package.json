@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@orama/orama": "^1.0.0-beta.16"
+  }
+}
