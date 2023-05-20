@@ -5,13 +5,16 @@ import { CacheProvider } from "@chakra-ui/next-js";
 
 import chakraTheme from "@chakra-ui/theme";
 
-const { Button, Input, Divider } = chakraTheme.components;
+const { Button, Input, Divider, Drawer, Menu, Tag } = chakraTheme.components;
 
 const theme = extendBaseTheme({
   components: {
     Button,
     Input,
     Divider,
+    Drawer,
+    Menu,
+    Tag,
   },
 });
 
@@ -20,7 +23,7 @@ const ChakraProvider: FunctionComponent<{ children: ReactNode }> = ({
 }) => {
   return (
     <CacheProvider>
-      <ChakraBaseProvider theme={theme}>{children}</ChakraBaseProvider>;
+      <ChakraBaseProvider theme={theme}>{children}</ChakraBaseProvider>
     </CacheProvider>
   );
 };

@@ -8,9 +8,6 @@ const Main = () => {
       <div className="w-1/2">
         <StaticHome />
       </div>
-      <div className="hidden md:flex md:w-1/2">
-        {/* <InputSearch /> */}
-      </div>
     </div>
   );
 };

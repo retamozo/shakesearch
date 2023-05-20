@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import appendix from "../../../text/appendix.json";
 import React, { FunctionComponent } from "react";
 import { useRouter } from "next/navigation";
@@ -9,7 +9,7 @@ type WorkIndexProps = {
 
 const WorkIndex: FunctionComponent<WorkIndexProps> = ({ onIndexClick }) => {
   const { push } = useRouter();
-   return (
+  return (
     <ul className="flex flex-col pl-4 overflow-y-auto">
       {Object.keys(appendix).map((key, i) => {
         return (
@@ -17,7 +17,7 @@ const WorkIndex: FunctionComponent<WorkIndexProps> = ({ onIndexClick }) => {
             key={key}
             role="option"
             className="pl-2 py-1 text-left w-full hover:border-b border-b-2 border-transparent transition duration-200 ease-in-out hover:border-gray-500 cursor-pointer"
-            aria-selected
+            aria-selected={Boolean(i)}
             onClick={(e) => {
               onIndexClick?.();
               push(key);

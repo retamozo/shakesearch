@@ -23,7 +23,7 @@ const SearchDrawer = () => {
     <>
       <SearchIcon onClick={() => setOpenMobileDrawer(true)} />
       <Drawer
-        size={"full"}
+        size={"lg"}
         placement={"bottom"}
         onClose={() => setOpenMobileDrawer(false)}
         isOpen={openMobileDrawer}
@@ -48,7 +48,7 @@ const SearchDrawer = () => {
             </InputGroup>
           </DrawerHeader>
           <DrawerBody className="p-4 overflow-y-scroll pb-16">
-            <WorkIndex onIndexClick={() => setOpenMobileDrawer(false)}/>
+            <WorkIndex />
           </DrawerBody>
         </DrawerContent>
       </Drawer>

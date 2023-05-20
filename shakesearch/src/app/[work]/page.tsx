@@ -13,6 +13,12 @@ Ante mi llegada, el reclamo de mis gatos no tarda ni tres segundos en llegar, lu
 Trato de acariciarlos pero ambos huyen, sus maujeos me dicen “te extrañamos pero no para tanto”. Es jueves y volví a casa después de entrenar.
 `;
 
+const convertToTitleCase = (str: string) =>
+  str
+    .slice(1)
+    .replace(/-/g, " ")
+    .replace(/\b\w/g, (c) => c.toUpperCase());
+
 const Work = () => {
   const path = usePathname();
 
@@ -23,9 +29,9 @@ const Work = () => {
   }, [setOriginalText]);
 
   return (
-    <div className="flex flex-col w-2/5 pt-6">
-      <p>{path}</p>
-      <TextBoard />;
+    <div className="flex flex-col w-full text-justify md:w-2/5 pt-6">
+      <p className="py-3 text-2xl">{convertToTitleCase(path)}</p>
+      <TextBoard />
     </div>
   );
 };

@@ -15,7 +15,7 @@ const Header = () => {
           <div className="md:hidden">
             <MobileSearch />
           </div>
-          <div className="hidden md:flex md:w-1/2">
+          <div className="hidden md:flex md:flex-col md:w-1/2 relative">
             <InputSearch />
           </div>
         </div>

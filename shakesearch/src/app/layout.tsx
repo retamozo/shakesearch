@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import ChakraProvider from "../providers/ChakraProvider";
 import TextBoardProvider from "@/providers/TextBoardProvider";
 import { ReactNode } from "react";
-import { Footer, WorkIndex } from "@/components";
+import { Footer } from "@/components";
 
 const lora = Lora({
   subsets: ["latin"],
@@ -42,10 +42,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <header className="px-6 pt-6 md:container md:mx-auto">
               <Header />
             </header>
-            <main className="flex-grow md:container md:mx-auto px-6"> {/**flex flex-grow flex-col-reverse md:flex-row md:container md:mx-auto p-6 */}                          
+            <main className="flex-grow md:container md:mx-auto px-6">
               {children}
             </main>
-            <footer>
+            <footer className="h-8">
               <Footer />
             </footer>
           </body>
