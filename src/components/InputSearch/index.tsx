@@ -1,23 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
-import {
-  Input,
-  InputGroup,
-  Text,
-  InputRightElement,
-  useDisclosure,
-  Box,
-  Fade,
-} from "@chakra-ui/react";
-import useCommandShortcut from "@/hooks/useCommandShortcut";
+import { Input, InputGroup, InputRightElement } from "@chakra-ui/react";
 import useTextBoardContext from "@/hooks/useTextBoardContext";
-import WorksFilterList from "./WorksFilterList";
+import { Kbd } from "@chakra-ui/react";
+import useCtrlKeyCombination from "@/hooks/useCtrlKeyCombination";
 
 const InputSearch = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [shortcutIndicator, setShortcutIndicator] = useState("");
-  const { isOpen, onToggle } = useDisclosure();
-
-  useCommandShortcut(inputRef);
 
   const { value, onChange } = useTextBoardContext();
 
@@ -25,6 +14,10 @@ const InputSearch = () => {
     const ctrlKey = navigator?.userAgent.indexOf("Mac") != -1 ? "⌘" : "Ctrl";
     setShortcutIndicator(ctrlKey);
   }, []);
+
+  useCtrlKeyCombination("k", () => {
+    inputRef?.current?.focus();
+  });
 
   return (
     <>
@@ -36,12 +29,14 @@ const InputSearch = () => {
           onChange={onChange}
           size={"md"}
           type="text"
-          placeholder="Search ..."
-          onFocus={() => onToggle()}
-          onBlur={() => onToggle()}
+          placeholder="Search through the whole work..."
         />
-        <InputRightElement className="mx-2" width={"4rem"} pointerEvents="none">
-          <Text className="text-gray-400">{shortcutIndicator} + K</Text>
+        <InputRightElement
+          className="mx-2"
+          width={"max-content"}
+          pointerEvents="none"
+        >
+          <Kbd>{shortcutIndicator} + K </Kbd>
         </InputRightElement>
       </InputGroup>
       {/* <Fade in={true}>
