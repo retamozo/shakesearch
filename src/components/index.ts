@@ -7,3 +7,4 @@ export { default as WorkIndex } from "./WorkIndex";
 export { default as MobileSearch } from "./MobileSearch";
 export { default as Footer } from "./Footer";
 export { default as StaticHome } from "./StaticHome";
+export { default as TextBoardSearch } from "./QuickLookup";

@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from "react";
 import { useRouter } from "next/navigation";
-import { GetStaticProps } from "next";
 import fetcher from "@/utils/fetcher";
 import useSWR from "swr";
 import { Spinner } from "@chakra-ui/react";

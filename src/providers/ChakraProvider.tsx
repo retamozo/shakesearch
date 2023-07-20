@@ -3,7 +3,8 @@ import { ChakraBaseProvider, extendBaseTheme } from "@chakra-ui/react";
 import { CacheProvider } from "@chakra-ui/next-js";
 import chakraTheme from "@chakra-ui/theme";
 
-const { Button, Input, Divider, Drawer, Menu, Tag } = chakraTheme.components;
+const { Button, Input, Divider, Drawer, Menu, Tag, Kbd } =
+  chakraTheme.components;
 
 const theme = extendBaseTheme({
   components: {
@@ -13,6 +14,7 @@ const theme = extendBaseTheme({
     Drawer,
     Menu,
     Tag,
+    Kbd,
   },
 });
 
