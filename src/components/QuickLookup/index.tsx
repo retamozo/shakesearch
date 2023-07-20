@@ -1,18 +1,21 @@
-import useTextBoardContext from "@/hooks/useTextBoardContext";
 import { ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons";
 import {
-  Box,
   Divider,
   Input,
   InputGroup,
   InputRightElement,
-  SlideFade,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { FunctionComponent } from "react";
 
-const QuickLookup = () => {
-  const { onChange, matchCount } = useTextBoardContext();
+type QuickLookupProps = {
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  matchCount: number;
+};
 
+const QuickLookup: FunctionComponent<QuickLookupProps> = ({
+  matchCount,
+  onChange,
+}) => {
   return (
     <div className="bottom-0 sticky my-0 rounded-t-lg bg-slate-200 shadow-indigo-200">
       {/* <SlideFade

@@ -12,4 +12,4 @@ export interface Source extends Document {
   pages?: number;
 }
 
-type Content = string | string[];
+type Content = string[];

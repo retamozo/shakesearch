@@ -1,4 +1,4 @@
-import useTextBoardSearch from "@/hooks/useTextBoardSearch";
+import useSearch from "@/hooks/useSearch";
 import React, {
   ChangeEvent,
   createContext,
@@ -23,7 +23,7 @@ const TextBoardProvider: FunctionComponent<{
   content: string[];
   children: ReactNode;
 }> = ({ children, content }) => {
-  const boardSearchProps = useTextBoardSearch(content);
+  const boardSearchProps = useSearch(content);
 
   return (
     <TextBoardContext.Provider value={{ ...boardSearchProps }}>

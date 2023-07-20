@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Input, InputGroup, InputRightElement } from "@chakra-ui/react";
 import useTextBoardContext from "@/hooks/useTextBoardContext";
 import { Kbd } from "@chakra-ui/react";
-import useCtrlKeyCombination from "@/hooks/useCtrlKeyCombination";
+// import useCtrlKeyCombination from "@/hooks/useCtrlKeyCombination";
 
 const InputSearch = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -15,9 +15,9 @@ const InputSearch = () => {
     setShortcutIndicator(ctrlKey);
   }, []);
 
-  useCtrlKeyCombination("k", () => {
-    inputRef?.current?.focus();
-  });
+  // useCtrlKeyCombination("k", () => {
+  //   inputRef?.current?.focus();
+  // });
 
   return (
     <>

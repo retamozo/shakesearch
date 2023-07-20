@@ -7,7 +7,6 @@ import TextBoardProvider from "@/providers/TextBoardProvider";
 import "./globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  console.log("pageProps", pageProps);
   return (
     <ChakraProvider>
       <Head>
