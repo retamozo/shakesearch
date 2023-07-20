@@ -1,56 +1,32 @@
-import useSearch from "@/hooks/useSearch";
+import useTextBoardSearch from "@/hooks/useTextBoardSearch";
 import React, {
   ChangeEvent,
   createContext,
-  Dispatch,
+  MutableRefObject,
   FunctionComponent,
   ReactNode,
-  SetStateAction,
-  useState,
 } from "react";
 
-type TTextBoardContext = {
+export type TTextBoardContext = {
   value: string;
   matchCount: number;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  openMobileDrawer: boolean;
-  setOpenMobileDrawer: Dispatch<SetStateAction<boolean>>;
-  setOriginalText: Dispatch<SetStateAction<string>>;
-  highlightedText: string;
-  originalText: string;
+  resetAllMatches: () => void;
+  highlightRefEls: MutableRefObject<HTMLElement[] | null>;
 };
 
-export const TextBoardContext = createContext<TTextBoardContext>(
-  {} as TTextBoardContext
-);
+export const TextBoardContext = createContext({} as TTextBoardContext);
 
-const TextBoardProvider: FunctionComponent<{ children: ReactNode }> = ({
-  children,
-}) => {
-  const [originalText, setOriginalText] = useState("");
+TextBoardContext.displayName = "Text Board Provider";
 
-  const {
-    matchCount,
-    onChange,
-    value,
-    highlightedText,
-    openMobileDrawer,
-    setOpenMobileDrawer,
-  } = useSearch(originalText);
+const TextBoardProvider: FunctionComponent<{
+  content: string[];
+  children: ReactNode;
+}> = ({ children, content }) => {
+  const boardSearchProps = useTextBoardSearch(content);
 
   return (
-    <TextBoardContext.Provider
-      value={{
-        value,
-        matchCount,
-        onChange,
-        setOriginalText,
-        originalText,
-        highlightedText,
-        openMobileDrawer,
-        setOpenMobileDrawer,
-      }}
-    >
+    <TextBoardContext.Provider value={{ ...boardSearchProps }}>
       {children}
     </TextBoardContext.Provider>
   );
